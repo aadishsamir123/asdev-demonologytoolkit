@@ -1,0 +1,326 @@
+.ghost-finder-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #e0e0e0;
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #d4b5ff;
+  font-size: 1rem;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: rgba(48, 48, 68, 0.6);
+  border: 1px solid rgba(140, 58, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(60, 60, 85, 0.8);
+  transform: translateX(-5px);
+}
+
+.ghost-finder-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(140, 58, 255, 0.5);
+}
+
+.ghost-finder-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .ghost-finder-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Evidence Section */
+.evidence-section, .ghosts-section {
+  background: rgba(24, 24, 35, 0.8);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: fit-content;
+}
+
+.evidence-section h2, .ghosts-section h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #f0f0f0;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.evidence-counter {
+  font-size: 1rem;
+  background-color: rgba(140, 58, 255, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  color: #d4b5ff;
+}
+
+.evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.evidence-card {
+  background: rgba(48, 48, 68, 0.6);
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 120px;
+}
+
+.evidence-card:hover {
+  background: rgba(60, 60, 85, 0.8);
+  border-color: rgba(140, 58, 255, 0.3);
+}
+
+.evidence-card.selected {
+  background: rgba(140, 58, 255, 0.2);
+  border-color: rgba(140, 58, 255, 0.6);
+}
+
+.evidence-card.impossible {
+  /* Removed impossible styling */
+}
+
+.evidence-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.evidence-name {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.selected-indicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 12px;
+  height: 12px;
+  background-color: #8c3aff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(140, 58, 255, 0.7);
+}
+
+.reset-button {
+  background-color: rgba(255, 69, 58, 0.6);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+  background-color: rgba(255, 69, 58, 0.8);
+}
+
+/* Ghosts Section */
+.ghosts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.ghosts-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ghosts-grid::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.ghosts-grid::-webkit-scrollbar-thumb {
+  background: rgba(140, 58, 255, 0.5);
+  border-radius: 3px;
+}
+
+.ghost-card {
+  background: rgba(48, 48, 68, 0.6);
+  padding: 1.25rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ghost-card:hover {
+  background: rgba(60, 60, 85, 0.8);
+  border-color: rgba(140, 58, 255, 0.3);
+}
+
+.ghost-card.selected {
+  background: rgba(140, 58, 255, 0.2);
+  border-color: rgba(140, 58, 255, 0.6);
+}
+
+.ghost-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  color: #f0f0f0;
+}
+
+.ghost-evidence {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.evidence-tag {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.evidence-tag.matched {
+  background-color: rgba(140, 58, 255, 0.3);
+  color: #d4b5ff;
+}
+
+.evidence-tag-icon {
+  margin-right: 6px;
+}
+
+.no-ghosts {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: #f0ad4e;
+  text-align: center;
+}
+
+.no-ghosts svg {
+  margin-bottom: 1rem;
+  opacity: 0.8;
+  color: #f0ad4e;
+}
+
+.warning-icon {
+  color: #f0ad4e;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+}
+
+/* Ghost Details */
+.ghost-details {
+  margin-top: 2rem;
+  background: rgba(24, 24, 35, 0.8);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ghost-details h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: #f0f0f0;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(140, 58, 255, 0.3);
+}
+
+.ghost-description {
+  color: #d4d4e0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.ghost-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .ghost-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ghost-info-card {
+  background: rgba(48, 48, 68, 0.6);
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ghost-info-card h4 {
+  margin-top: 0;
+  color: #d4b5ff;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.ghost-info-card p {
+  color: #e0e0e0;
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
