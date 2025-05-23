@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTrash, FaExclamationTriangle, FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -6,82 +7,102 @@ import './GhostFinder.css';
 
 const GhostFinder = () => {
   const allEvidence = [
-    { id: 'emf-5', name: 'EMF Level 5', icon: '📡' },
-    { id: 'spirit-box', name: 'Spirit Box', icon: '📻' },
+    { id: 'emf', name: 'EMF Level 5', icon: '📡' },
+    { id: 'box', name: 'Spirit Box', icon: '📻' },
     { id: 'handprints', name: 'Handprints', icon: '👋' },
-    { id: 'ghost-orb', name: 'Ghost Orb', icon: '🔮' },
-    { id: 'ghost-writing', name: 'Ghost Writing', icon: '✍️' },
-    { id: 'freezing-temps', name: 'Freezing Temperatures', icon: '❄️' },
+    { id: 'orb', name: 'Ghost Orb', icon: '🔮' },
+    { id: 'book', name: 'Ghost Writing', icon: '✍️' },
+    { id: 'temps', name: 'Freezing Temperatures', icon: '❄️' },
     { id: 'laser', name: 'Laser Projector', icon: '👻' },
     { id: 'wither', name: 'Wither', icon: '🥀' },
   ];
 
   // Ghost data with their evidence
   const ghostData = [
-    { 
-      name: 'Spirit', 
-      evidence: ['emf-5', 'spirit-box', 'ghost-writing'],
-    },
-    { 
-      name: 'Wraith', 
-      evidence: ['emf-5', 'spirit-box', 'laser'],
-    },
-    { 
-      name: 'Phantom', 
-      evidence: ['spirit-box', 'handprints', 'laser'],
-    },
-    { 
-      name: 'Poltergeist', 
-      evidence: ['spirit-box', 'handprints', 'ghost-writing'],
-    },
-    { 
-      name: 'Banshee', 
-      evidence: ['handprints', 'ghost-orb', 'laser'],
-    },
-    { 
-      name: 'Jinn', 
-      evidence: ['emf-5', 'handprints', 'freezing-temps'],
-    },
-    { 
-      name: 'Mare', 
-      evidence: ['spirit-box', 'ghost-orb', 'ghost-writing'],
-    },
-    { 
-      name: 'Revenant', 
-      evidence: ['ghost-orb', 'ghost-writing', 'freezing-temps'],
-    },
-    { 
-      name: 'Shade', 
-      evidence: ['emf-5', 'ghost-writing', 'freezing-temps'],
-    },
-    { 
-      name: 'Demon', 
-      evidence: ['handprints', 'ghost-writing', 'freezing-temps'],
-    },
-    { 
-      name: 'Yurei', 
-      evidence: ['ghost-orb', 'freezing-temps', 'laser'],
-    },
-    { 
-      name: 'Oni', 
-      evidence: ['emf-5', 'freezing-temps', 'laser'],
-    },
-    { 
-      name: 'Yokai', 
-      evidence: ['spirit-box', 'ghost-orb', 'laser'],
-    },
-    { 
-      name: 'Hantu', 
-      evidence: ['handprints', 'ghost-orb', 'freezing-temps'],
-    },
-    { 
-      name: 'Goryo', 
-      evidence: ['emf-5', 'handprints', 'laser'],
-    },
-    { 
-      name: 'Myling', 
-      evidence: ['emf-5', 'handprints', 'ghost-writing'],
-    },
+      {
+        name: 'Aswang',
+        evidence: ['emf', 'wither', 'book'],
+      },
+      {
+        name: 'Banshee',
+        evidence: ['orb', 'temps', 'handprints'],
+      },
+      {
+        name: 'Demon',
+        evidence: ['emf', 'handprints', 'temps'],
+      },
+      {
+        name: 'Dullahan',
+        evidence: ['wither', 'laser', 'temps'],
+      },
+      {
+        name: 'Dybbuk',
+        evidence: ['wither', 'handprints', 'temps'],
+      },
+      {
+        name: 'Entity',
+        evidence: ['box', 'handprints', 'laser'],
+      },
+      {
+        name: 'Ghoul',
+        evidence: ['box', 'temps', 'orb'],
+      },
+      {
+        name: 'Leviathan',
+        evidence: ['orb', 'handprints', 'book'],
+      },
+      {
+        name: 'Nightmare',
+        evidence: ['emf', 'box', 'orb'],
+      },
+      {
+        name: 'Oni',
+        evidence: ['laser', 'box', 'temps'],
+      },
+      {
+        name: 'Phantom',
+        evidence: ['emf', 'handprints', 'orb'],
+      },
+      {
+        name: 'Revenant',
+        evidence: ['book', 'emf', 'temps'],
+      },
+      {
+        name: 'Shadow',
+        evidence: ['emf', 'book', 'laser'],
+      },
+      {
+        name: 'Siren',
+        evidence: ['wither', 'box', 'emf'],
+      },
+      {
+        name: 'Skinwalker',
+        evidence: ['temps', 'book', 'box'],
+      },
+      {
+        name: 'Specter',
+        evidence: ['emf', 'temps', 'laser'],
+      },
+      {
+        name: 'Spirit',
+        evidence: ['handprints', 'book', 'box'],
+      },
+      {
+        name: 'Umbra',
+        evidence: ['orb', 'laser', 'handprints'],
+      },
+      {
+        name: 'Wendigo',
+        evidence: ['orb', 'book', 'laser'],
+      },
+      {
+        name: 'The Wisp',
+        evidence: ['wither', 'laser', 'orb'],
+      },
+      {
+        name: 'Wraith',
+        evidence: ['emf', 'box', 'laser'],
+      },
   ];
 
   const [selectedEvidence, setSelectedEvidence] = useState([]);
@@ -100,6 +121,7 @@ const GhostFinder = () => {
     );
     
     setPossibleGhosts(filtered);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedEvidence]);
 
   const handleEvidenceClick = (evidenceId) => {
